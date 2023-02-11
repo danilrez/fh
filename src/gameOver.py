@@ -8,9 +8,9 @@ from datetime import datetime, timedelta
 #############################################
 
 REPO_URL = "https://github.com/danilrez/fh"  # Your repository URL
-BRANCH_NAME = "main"                              # Target branch
+BRANCH_NAME = "main"                         # Target branch
 TARGET_YEAR = 2023                           # Target year for commits
-COMMITS_PER_X = 4                           # Number of commits per 'X'
+COMMITS_PER_X = 15                           # Number of commits per 'X'
 
 #############################################
 #               STATIC CONFIG              #
@@ -51,7 +51,7 @@ def run_cmd(cmd: str) -> None:
 
 def print_progress_bar(iteration: int, total: int, prefix: str = '', suffix: str = '', length: int = 40) -> None:
     """
-    Prints/updates a progress bar in one line.
+    Prints/updates a unified progress bar in one line.
     The percentage is shown in plain green.
     """
     if iteration > total:
@@ -70,10 +70,11 @@ def print_progress_bar(iteration: int, total: int, prefix: str = '', suffix: str
 #               MAIN SCRIPT                #
 #############################################
 
-# Each character is a dict with:
+# Each character is defined as a dict with:
 #  - "char": the letter (or "SPACE")
 #  - "pattern": 7 strings for rows (4 columns for most letters, 5 for M/V)
-#  - "offset": how many days to move after finishing a letter
+#  - "offset": number of days to move after finishing a letter
+
 letters = [
     {
         "char": "G",
@@ -186,7 +187,7 @@ letters = [
     }
 ]
 
-# Calculate how many total commits we will make
+# Calculate total commits to be made (COMMITS_PER_X for each 'X' in all patterns)
 total_commits = sum(
     sum(COMMITS_PER_X for ch in row if ch == 'X')
     for letter in letters
@@ -194,45 +195,34 @@ total_commits = sum(
 )
 commits_done = 0
 
+# Initial message
 print(f"\n{COLOR_BOLD}{COLOR_CYAN}Starting commit generation for {TARGET_YEAR}...{COLOR_RESET}")
-print(f"\n{COLOR_BOLD}ref_date = {ref_date.date()}, year_offset = {year_offset}{COLOR_RESET}\n")
+print(f"{COLOR_BOLD}ref_date = {ref_date.date()}, year_offset = {year_offset}{COLOR_RESET}\n")
 
 for letter in letters:
     if letter["char"] == "SPACE":
-        # Just add the offset for spacing
         letter_offset += letter["offset"]
-        print(f"\n{COLOR_YELLOW}Adding space offset of {letter['offset']} days => letter_offset = {letter_offset}{COLOR_RESET}")
         continue
-
-    print(f"\n{COLOR_BOLD}Drawing letter: {letter['char']}{COLOR_RESET}")
-    print(f"\nStarting offset = {letter_offset}")
 
     for row, line in enumerate(letter["pattern"]):
         for col, ch in enumerate(line):
             if ch == 'X':
-                # day_index => which day from ref_date
+                # Calculate day_index relative to current letter offset
                 day_index = letter_offset + col * 7 + row
                 current_date = ref_date + timedelta(days=day_index)
-                print(f"\n{letter['char']} => row={row}, col={col}, day_index={day_index}, date={current_date.date()}")
-
                 for _ in range(COMMITS_PER_X):
                     commit_date_str = current_date.strftime("%Y-%m-%dT%H:%M:%S")
-                    # Write a line to commit_log
                     with open(COMMIT_FILE, "a") as f:
                         f.write(f"{letter['char']} letter commit {commit_date_str}\n")
-
                     run_cmd(f'git add "{COMMIT_FILE}"')
                     run_cmd(
                         f'GIT_AUTHOR_DATE="{commit_date_str}" '
                         f'GIT_COMMITTER_DATE="{commit_date_str}" '
                         f'git commit -m "{letter["char"]} letter commit {commit_date_str}"'
                     )
-
                     commits_done += 1
                     print_progress_bar(commits_done, total_commits, prefix="Progress", suffix="Complete")
-
     letter_offset += letter["offset"]
-    print(f"\n{COLOR_GREEN}Finished letter {letter['char']}, new letter_offset = {letter_offset}{COLOR_RESET}\n")
 
 print("\nPushing commits to remote repository...\n")
 run_cmd(f"git push -f origin {BRANCH_NAME}")
