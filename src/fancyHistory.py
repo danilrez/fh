@@ -17,7 +17,7 @@ end_date   = datetime(TARGET_YEAR, 12, 31)  # Not included in the loop
 
 # Range of commits per day
 MIN_COMMITS_PER_DAY = 1
-MAX_COMMITS_PER_DAY = 2
+MAX_COMMITS_PER_DAY = 5
 
 # File for fake commits (stored in src/commit_log.txt)
 # Script is in src/, so repo_root = ".." from here.
