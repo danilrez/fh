@@ -9,8 +9,8 @@ from datetime import datetime, timedelta
 
 REPO_URL = "https://github.com/danilrez/fh2"  # Your repository URL
 BRANCH_NAME = "main"                              # Target branch
-TARGET_YEAR = 2024                           # Target year for commits
-COMMITS_PER_X = 5                           # Number of commits per 'X'
+TARGET_YEAR = 2023                           # Target year for commits
+COMMITS_PER_X = 7                           # Number of commits per 'X'
 
 #############################################
 #               STATIC CONFIG              #

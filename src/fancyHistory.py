@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 #               CONFIG SECTION             #
 #############################################
 
-TARGET_YEAR = 2024
+TARGET_YEAR = 2023
 BRANCH_NAME = "main"
 REPO_URL  = "https://github.com/danilrez/fh2"
 
@@ -17,7 +17,7 @@ end_date   = datetime(TARGET_YEAR, 12, 31)  # Not included in the loop
 
 # Range of commits per day
 MIN_COMMITS_PER_DAY = 1
-MAX_COMMITS_PER_DAY = 5
+MAX_COMMITS_PER_DAY = 1
 
 # File for fake commits (stored in src/commit_log.txt)
 # Script is in src/, so repo_root = ".." from here.
