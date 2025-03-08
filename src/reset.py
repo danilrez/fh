@@ -8,7 +8,7 @@ from datetime import datetime
 #               USER CONFIG                #
 #############################################
 
-TARGET_YEAR = 2024  # The year for which commits will be removed
+TARGET_YEAR = 2025  # The year for which commits will be removed
 REMOTE_URL  = "https://github.com/danilrez/fh"  # Your repository URL
 BRANCH      = "main"  # Target branch
 
