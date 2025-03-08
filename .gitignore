@@ -3,6 +3,7 @@ node_modules/
 build
 *.vsix
 __pycache__/
+path/
 
 # Log files
 *.log
