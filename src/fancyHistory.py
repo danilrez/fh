@@ -2,7 +2,19 @@ import os
 import random
 import sys
 from datetime import datetime, timedelta
-from helpers import run_cmd, print_progress_bar, check_repo_clean,  COLOR_BOLD, COLOR_BG_RED, COLOR_RESET, COLOR_RED, COLOR_CYAN, COLOR_BOLD, COLOR_GREEN, COLOR_YELLOW, COLOR_BLUE
+from helpers import (
+    run_cmd,
+    print_progress_bar,
+    check_repo_clean,
+    COLOR_BOLD,
+    COLOR_BG_RED,
+    COLOR_RESET,
+    COLOR_RED,
+    COLOR_CYAN,
+    COLOR_GREEN,
+    COLOR_YELLOW,
+    COLOR_BLUE
+)
 
 #############################################
 #               USER CONFIG                #

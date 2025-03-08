@@ -2,7 +2,17 @@ import os
 import sys
 import random
 from datetime import datetime, timedelta
-from helpers import run_cmd, print_progress_bar, check_repo_clean, COLOR_CYAN, COLOR_BOLD, COLOR_RESET, COLOR_GREEN, COLOR_YELLOW, COLOR_BLUE
+from helpers import (
+    run_cmd,
+    print_progress_bar,
+    check_repo_clean,
+    COLOR_BOLD,
+    COLOR_CYAN,
+    COLOR_GREEN,
+    COLOR_YELLOW,
+    COLOR_BLUE,
+    COLOR_RESET
+)
 
 #############################################
 #               USER CONFIG                #
@@ -154,6 +164,10 @@ letters = [
         "offset": 35
     }
 ]
+
+
+# Check if repository is clean before proceeding
+check_repo_clean()
 
 # Calculate total commits to be made (COMMITS_PER_X for each 'X' in all patterns)
 total_commits = sum(
