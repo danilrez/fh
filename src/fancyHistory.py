@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 
 TARGET_YEAR = 2023
 BRANCH_NAME = "main"
-REPO_URL  = "https://github.com/danilrez/fh2"
+REPO_URL  = "https://github.com/danilrez/fh"
 
 # We'll create commits from Jan 1 (inclusive) to Dec 31 (exclusive)
 start_date = datetime(TARGET_YEAR, 1, 1)

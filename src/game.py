@@ -7,10 +7,10 @@ from datetime import datetime, timedelta
 #               USER CONFIG                #
 #############################################
 
-REPO_URL = "https://github.com/danilrez/fh2"  # Your repository URL
+REPO_URL = "https://github.com/danilrez/fh"  # Your repository URL
 BRANCH_NAME = "main"                              # Target branch
 TARGET_YEAR = 2023                           # Target year for commits
-COMMITS_PER_X = 7                           # Number of commits per 'X'
+COMMITS_PER_X = 4                           # Number of commits per 'X'
 
 #############################################
 #               STATIC CONFIG              #
