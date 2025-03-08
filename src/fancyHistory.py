@@ -107,7 +107,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Print start message (using CYAN color)
-    print(f"{COLOR_BOLD}{COLOR_CYAN}Starting commit generation for {TARGET_YEAR}...{COLOR_RESET}")
+    print(f"\n{COLOR_BOLD}{COLOR_CYAN}Starting commit generation for {TARGET_YEAR}...{COLOR_RESET}\n")
 
     current_date = start_date
     day_counter = 0
@@ -147,4 +147,4 @@ if __name__ == "__main__":
     run_cmd(f"git push origin {BRANCH_NAME}")
 
     # Print final message with bold green "[Done]" and green text for the rest
-    print(f"{COLOR_BOLD}{COLOR_GREEN}[Done]{COLOR_RESET} {COLOR_GREEN}All commits have been pushed to: {COLOR_RESET}{COLOR_YELLOW}{REPO_URL} {COLOR_BLUE}(branch: {BRANCH_NAME}){COLOR_RESET}\n")
+    print(f"\n{COLOR_BOLD}{COLOR_GREEN}[Done]{COLOR_RESET} {COLOR_GREEN}All commits have been pushed to: {COLOR_RESET}{COLOR_YELLOW}{REPO_URL} {COLOR_BLUE}(branch: {BRANCH_NAME}){COLOR_RESET}\n")
