@@ -99,6 +99,8 @@ if __name__ == "__main__":
     # Cleanup logs
     with open(COMMIT_FILE, "w") as f:
         pass
+    run_cmd(f'git add "{COMMIT_FILE}"')
+    run_cmd(f'git commit -m "Cleanup"')
 
     # Rename branch and push changes quietly
     run_cmd(f"git branch -M {BRANCH_NAME}")

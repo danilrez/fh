@@ -208,6 +208,8 @@ for letter in letters:
 # Cleanup logs
 with open(COMMIT_FILE, "w") as f:
     pass
+run_cmd(f'git add "{COMMIT_FILE}"')
+run_cmd(f'git commit -m "Cleanup"')
 
 print("Pushing commits to remote repository...\n")
 run_cmd(f"git push -f origin {BRANCH_NAME}")
