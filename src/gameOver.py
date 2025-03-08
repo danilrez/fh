@@ -2,6 +2,7 @@ import os
 import sys
 import random
 from datetime import datetime, timedelta
+from helpers import run_cmd, print_progress_bar, check_repo_clean, COLOR_CYAN, COLOR_BOLD, COLOR_RESET, COLOR_GREEN, COLOR_YELLOW, COLOR_BLUE
 
 #############################################
 #               USER CONFIG                #
@@ -32,45 +33,6 @@ ref_date = datetime(TARGET_YEAR - 1, 12, 31)
 year_offsets = {2025: 33, 2024: 35, 2023: 36, 2022: 30, 2021: 31, 2020: 33}
 year_offset = year_offsets.get(TARGET_YEAR, 35)
 letter_offset = year_offset
-
-#############################################
-#             COLOR & STYLES               #
-#############################################
-
-COLOR_RESET        = "\033[0m"
-COLOR_CYAN         = "\033[96m"
-COLOR_GREEN        = "\033[32m"
-COLOR_YELLOW       = "\033[33m"
-COLOR_BRIGHT_GREEN = "\033[92m"
-COLOR_BOLD         = "\033[1m"
-COLOR_RED          = "\033[31m"
-COLOR_BG_RED       = "\033[41m"
-COLOR_BLUE         = "\033[34m"
-
-#############################################
-#            UTILITY FUNCTIONS             #
-#############################################
-
-def run_cmd(cmd: str) -> None:
-    """Runs a shell command quietly (redirecting output to /dev/null)."""
-    os.system(f"{cmd} > /dev/null 2>&1")
-
-def print_progress_bar(iteration: int, total: int, prefix: str = '', suffix: str = '', length: int = 40) -> None:
-    """
-    Prints/updates a unified progress bar in one line.
-    The percentage is shown in plain green.
-    """
-    if iteration > total:
-        iteration = total
-    percent = 100.0 * iteration / float(total)
-    filled_length = int(length * iteration // total)
-    bar = (COLOR_BRIGHT_GREEN + '█' * filled_length + COLOR_RESET +
-           '-' * (length - filled_length))
-    sys.stdout.write(f'\r{prefix} |{bar}| {COLOR_GREEN}{percent:5.1f}%{COLOR_RESET} {suffix}')
-    sys.stdout.flush()
-    if iteration >= total:
-        sys.stdout.write('\n\n')
-        sys.stdout.flush()
 
 #############################################
 #               MAIN SCRIPT                #
