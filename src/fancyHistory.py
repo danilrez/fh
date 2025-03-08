@@ -20,17 +20,20 @@ from helpers import (
 #               USER CONFIG                #
 #############################################
 
-REPO_URL = "https://github.com/danilrez/fh"   # Your repository URL
-BRANCH_NAME = "main"                          # Target branch
-TARGET_YEAR = 2023                            # Target year for commits
-
-#############################################
-#               STATIC CONFIG              #
-#############################################
+ # Your repository URL
+REPO_URL = "https://github.com/danilrez/fh"
+ # Target branch
+BRANCH_NAME = "main"
+  # Target year for commits
+TARGET_YEAR = 2023
 
 # Range of commits per day
 MIN_COMMITS_PER_DAY = 1
 MAX_COMMITS_PER_DAY = 3
+
+#############################################
+#               STATIC CONFIG              #
+#############################################
 
 # We'll create commits from Jan 1 (inclusive) to Dec 31 (exclusive)
 start_date = datetime(TARGET_YEAR, 1, 1)
