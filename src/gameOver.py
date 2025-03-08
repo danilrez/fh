@@ -202,8 +202,7 @@ total_commits = sum(
 commits_done = 0
 
 # Initial message
-print(f"\n{COLOR_BOLD}{COLOR_CYAN}Starting commit generation for {TARGET_YEAR}...{COLOR_RESET}")
-print(f"ref_date = {COLOR_BOLD}{ref_date.date()}{COLOR_RESET}, year_offset = {COLOR_BOLD}{year_offset}{COLOR_RESET}\n")
+print(f"\n{COLOR_CYAN}Starting commit generation for {COLOR_BOLD}{TARGET_YEAR}...{COLOR_RESET}")
 
 for letter in letters:
     if letter["char"] == "SPACE":
@@ -236,5 +235,5 @@ run_cmd(f"git push -f origin {BRANCH_NAME}")
 print(
     f"{COLOR_BOLD}{COLOR_GREEN}[Done]{COLOR_RESET} "
     f"{COLOR_GREEN}All commits have been pushed to: {COLOR_RESET}{COLOR_YELLOW}{REPO_URL} "
-    f"{COLOR_BLUE}(branch: {BRANCH_NAME}){COLOR_RESET}"
+    f"{COLOR_BLUE}({BRANCH_NAME}){COLOR_RESET}"
 )
