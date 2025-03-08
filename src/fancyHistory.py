@@ -96,6 +96,10 @@ if __name__ == "__main__":
         print_progress_bar(day_counter, total_days, prefix="Progress", suffix="Complete")
         current_date += timedelta(days=1)
 
+    # Cleanup logs
+    with open(COMMIT_FILE, "w") as f:
+        pass
+
     # Rename branch and push changes quietly
     run_cmd(f"git branch -M {BRANCH_NAME}")
 
