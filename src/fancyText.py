@@ -205,6 +205,10 @@ for letter in letters:
                     print_progress_bar(commits_done, total_commits, prefix="Progress", suffix="Complete")
     letter_offset += letter["offset"]
 
+# Cleanup logs
+with open(COMMIT_FILE, "w") as f:
+    pass
+
 print("Pushing commits to remote repository...\n")
 run_cmd(f"git push -f origin {BRANCH_NAME}")
 
