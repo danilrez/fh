@@ -7,17 +7,23 @@ from datetime import datetime, timedelta
 #               USER CONFIG                #
 #############################################
 
-REPO_URL = "https://github.com/danilrez/fh"  # Your repository URL
-BRANCH_NAME = "main"                         # Target branch
-TARGET_YEAR = 2023                           # Target year for commits
-COMMITS_PER_X = 15                           # Number of commits per 'X'
+ # Your repository URL
+REPO_URL = "https://github.com/danilrez/fh"
+ # Target branch
+BRANCH_NAME = "main"
+  # Target year for commits
+TARGET_YEAR = 2023
+# Number of commits per 'X'
+COMMITS_PER_X = 1
 
 #############################################
 #               STATIC CONFIG              #
 #############################################
 
-# We'll store the dummy commits in src/commit_log.txt
-COMMIT_FILE = "src/commit_log.txt"
+# File for fake commits (stored in src/commit_log.txt)
+# Script is in src/, so repo_root = ".." from here.
+repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+COMMIT_FILE = os.path.join(repo_root, "src", "commit_log.txt")
 
 # Reference date: Dec 31 of the previous year
 ref_date = datetime(TARGET_YEAR - 1, 12, 31)
@@ -197,7 +203,7 @@ commits_done = 0
 
 # Initial message
 print(f"\n{COLOR_BOLD}{COLOR_CYAN}Starting commit generation for {TARGET_YEAR}...{COLOR_RESET}")
-print(f"{COLOR_BOLD}ref_date = {ref_date.date()}, year_offset = {year_offset}{COLOR_RESET}\n")
+print(f"ref_date = {COLOR_BOLD}{ref_date.date()}{COLOR_RESET}, year_offset = {COLOR_BOLD}{year_offset}{COLOR_RESET}\n")
 
 for letter in letters:
     if letter["char"] == "SPACE":
@@ -224,11 +230,11 @@ for letter in letters:
                     print_progress_bar(commits_done, total_commits, prefix="Progress", suffix="Complete")
     letter_offset += letter["offset"]
 
-print("\nPushing commits to remote repository...\n")
+print("Pushing commits to remote repository...\n")
 run_cmd(f"git push -f origin {BRANCH_NAME}")
 
 print(
     f"{COLOR_BOLD}{COLOR_GREEN}[Done]{COLOR_RESET} "
     f"{COLOR_GREEN}All commits have been pushed to: {COLOR_RESET}{COLOR_YELLOW}{REPO_URL} "
-    f"{COLOR_BLUE}(branch: {BRANCH_NAME}){COLOR_RESET}\n"
+    f"{COLOR_BLUE}(branch: {BRANCH_NAME}){COLOR_RESET}"
 )

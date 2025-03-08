@@ -4,20 +4,27 @@ import sys
 from datetime import datetime, timedelta
 
 #############################################
-#               CONFIG SECTION             #
+#               USER CONFIG                #
 #############################################
 
-TARGET_YEAR = 2023
+ # Your repository URL
+REPO_URL = "https://github.com/danilrez/fh"
+ # Target branch
 BRANCH_NAME = "main"
-REPO_URL  = "https://github.com/danilrez/fh"
+  # Target year for commits
+TARGET_YEAR = 2023
+
+#############################################
+#               STATIC CONFIG              #
+#############################################
+
+# Range of commits per day
+MIN_COMMITS_PER_DAY = 1
+MAX_COMMITS_PER_DAY = 3
 
 # We'll create commits from Jan 1 (inclusive) to Dec 31 (exclusive)
 start_date = datetime(TARGET_YEAR, 1, 1)
 end_date   = datetime(TARGET_YEAR, 12, 31)  # Not included in the loop
-
-# Range of commits per day
-MIN_COMMITS_PER_DAY = 1
-MAX_COMMITS_PER_DAY = 1
 
 # File for fake commits (stored in src/commit_log.txt)
 # Script is in src/, so repo_root = ".." from here.
