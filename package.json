@@ -1,0 +1,32 @@
+{
+	"name": "fancy-history",
+	"displayName": "Fancy History",
+	"description": "Your fancy GitHub contribution graph",
+	"version": "1.0.0",
+	"author": "Danil Reznichenko [@danilrez]",
+	"publisher": "CrappyCodeMaker",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/danilrez/ccm-theme"
+	},
+	"bugs": {
+		"url": "https://github.com/danilrez/ccm-theme/issues"
+	},
+	"keywords": [
+		"ccm",
+		"crappycodemaker",
+		"danilrez",
+		"reznida",
+		"github",
+		"history"
+	],
+	"scripts": {
+		"fancy:year": "python3 src/fancyHistory.py",
+		"fancy:text": "python3 src/fancyText.py"
+	},
+	"devDependencies": {
+		"pnpm": "^7.0.0"
+	},
+	"packageManager": "pnpm@9.0.0"
+}

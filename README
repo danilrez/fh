@@ -1,6 +1,11 @@
 # Fancy History
 
-Fancy History is a Python script that generates fake commits throughout a specified year to fill your GitHub contribution graph.
+Fancy History is a set of `python` scripts that help you generate fake commits to customize your GitHub contribution graph.
+
+There are two main functionalities:
+
+-   **Daily Commit Generator:** Generates a random number of commits for every day within a specified year.
+-   **Inscription Generator:** Creates a custom inscription _(e.g., "GAME OVER")_ on your contribution graph.
 
 ## Requirements
 
@@ -9,24 +14,56 @@ Fancy History is a Python script that generates fake commits throughout a specif
 
 ## Configuration
 
+### Daily Commit Generator
+
 Edit `src/fancyGitHistory.py` to set:
 
--   **TARGET_YEAR**: The year for commit generation (e.g., `2021`)
--   **BRANCH_NAME**: The target branch (e.g., `main`)
--   **REMOTE_URL**: Your remote repository URL
--   **MIN_COMMITS_PER_DAY** & **MAX_COMMITS_PER_DAY**: Commit range per day
-    The commit log is stored in `src/commit_log.txt`.
+-   **TARGET_YEAR:** The year for commit generation (e.g., `2021`).
+-   **BRANCH_NAME:** The target branch (e.g., `main`).
+-   **REMOTE_URL:** Your remote repository URL.
+-   **MIN_COMMITS_PER_DAY** & **MAX_COMMITS_PER_DAY:** The range of commits per day.
+
+The commit log is stored in `src/commit_log.txt`.
+
+### Inscription Generator
+
+Edit the corresponding script (e.g., `src/gameOver.py`) to adjust:
+
+-   **TARGET_YEAR, COMMITS_PER_X, and letter offsets** to fine-tune the inscription's placement on your contribution graph.
 
 ## Usage
+
+### Daily Commit Generator
 
 1. Open a terminal and navigate to your project root:
     ```bash
     cd /path/to/your/project
     ```
 2. Ensure your repository is clean (commit or stash any changes).
-3. Run the script:
+3. Run the daily commit generator:
     ```bash
     python3 src/fancyGitHistory.py
     ```
-    You will see a color-coded progress bar and status messages.
-4. When finished, all commits will be pushed to your remote.
+    A color-coded progress bar will display the commit generation process.
+4. Once finished, the commits will be pushed to your remote repository.
+
+### Inscription Generator
+
+1. Open a terminal and navigate to your project root:
+    ```bash
+    cd /path/to/your/project
+    ```
+2. Ensure your repository is clean.
+3. Run the inscription generator:
+    ```bash
+    python3 src/gameOver.py
+    ```
+    This script will generate an inscription (e.g., "GAME OVER") on your contribution graph. Adjust the parameters in the script if needed.
+
+## Notes
+
+-   The generated commit log file (`src/commit_log.txt`) is used solely for generating fake commits and can be ignored.
+-   If the new commits do not immediately appear in your contribution graph, try a hard refresh or switch to the appropriate year view in your GitHub profile.
+-   It's recommended to add `__pycache__/` and `*.pyc` to your `.gitignore` to avoid committing temporary files.
+
+Enjoy your customized GitHub contribution graph!

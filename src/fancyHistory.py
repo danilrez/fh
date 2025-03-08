@@ -2,6 +2,7 @@ import os
 import random
 import sys
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 from helpers import (
     run_cmd,
     print_progress_bar,
@@ -16,20 +17,18 @@ from helpers import (
     COLOR_BLUE
 )
 
+# Load environment variables from .env file in project root
+load_dotenv(os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")), ".env"))
+
 #############################################
 #               USER CONFIG                #
 #############################################
 
- # Your repository URL
-REPO_URL = "https://github.com/danilrez/fh"
- # Target branch
-BRANCH_NAME = "main"
-  # Target year for commits
-TARGET_YEAR = 2023
-
-# Range of commits per day
-MIN_COMMITS_PER_DAY = 1
-MAX_COMMITS_PER_DAY = 3
+REPO_URL = os.getenv("REPO_URL")               # e.g., "https://github.com/danilrez/fh"
+BRANCH_NAME = os.getenv("BRANCH_NAME")         # e.g., "main"
+TARGET_YEAR = int(os.getenv("TARGET_YEAR", "2024"))
+MIN_COMMITS_PER_DAY = int(os.getenv("MIN_COMMITS_PER_DAY", "1"))
+MAX_COMMITS_PER_DAY = int(os.getenv("MAX_COMMITS_PER_DAY", "3"))
 
 #############################################
 #               STATIC CONFIG              #
