@@ -8,17 +8,16 @@ importers:
 
   .:
     devDependencies:
-      pnpm:
-        specifier: ^7.0.0
-        version: 7.33.7
+      dotenv:
+        specifier: ^16.4.7
+        version: 16.4.7
 
 packages:
 
-  pnpm@7.33.7:
-    resolution: {integrity: sha512-ev4kEGQrOcaY30baTOXHIxpczjYGmNafjPj0IlfUCz5D8jEFOwe43oSf1P+/SnH/V7g1E3d3o1I4jz09p0cgDg==}
-    engines: {node: '>=14.6'}
-    hasBin: true
+  dotenv@16.4.7:
+    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
+    engines: {node: '>=12'}
 
 snapshots:
 
-  pnpm@7.33.7: {}
+  dotenv@16.4.7: {}
