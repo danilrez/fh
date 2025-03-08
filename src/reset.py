@@ -8,7 +8,7 @@ from datetime import datetime
 #               USER CONFIG                #
 #############################################
 
-TARGET_YEAR = 2024  # Year to remove
+TARGET_YEAR = 2023  # Year to remove
 REMOTE_URL  = "https://github.com/danilrez/fh"
 BRANCH      = "main"
 
