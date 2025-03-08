@@ -53,18 +53,20 @@ def run_cmd(cmd: str) -> None:
 
 def print_progress_bar(iteration: int, total: int, prefix: str = '', suffix: str = '', length: int = 40) -> None:
     """
-    Print/update a progress bar in the console (in one line).
-    The percentage text is printed in green.
+    Prints/updates a unified progress bar in one line.
+    The percentage is shown in plain green.
     """
-    percent = 100 * (iteration / float(total))
+    if iteration > total:
+        iteration = total
+    percent = 100.0 * iteration / float(total)
     filled_length = int(length * iteration // total)
     bar = (COLOR_BRIGHT_GREEN + '█' * filled_length + COLOR_RESET +
            '-' * (length - filled_length))
-    # Print percentage in plain green
     sys.stdout.write(f'\r{prefix} |{bar}| {COLOR_GREEN}{percent:5.1f}%{COLOR_RESET} {suffix}')
     sys.stdout.flush()
-    if iteration == total:
-        print()
+    if iteration >= total:
+        sys.stdout.write('\n\n')
+        sys.stdout.flush()
 
 def check_repo_clean() -> None:
     """
