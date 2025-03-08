@@ -234,6 +234,6 @@ run_cmd(f"git push -f origin {BRANCH_NAME}")
 
 print(
     f"{COLOR_BOLD}{COLOR_GREEN}[Done]{COLOR_RESET} "
-    f"{COLOR_GREEN}All commits have been pushed to: {COLOR_RESET}{COLOR_YELLOW}{REPO_URL} "
+    f"{COLOR_GREEN}All commits have been pushed to: {COLOR_RESET}{COLOR_YELLOW}{REPO_URL}"
     f"{COLOR_BLUE}({BRANCH_NAME}){COLOR_RESET}"
 )
